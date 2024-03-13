@@ -66,6 +66,9 @@
 </div>
 </div>
 </div>
+
+
+<!-- 
 <div class="footer_bar">
 <div class="container">
 <div class="row">
@@ -87,7 +90,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 </div>
 </div>
-</div>
+</div> -->
+
+
 </footer>
 </div>
 </div>
