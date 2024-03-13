@@ -83,6 +83,8 @@
 <script src="plugins/progressbar/progressbar.min.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="plugins/flexslider/jquery.flexslider-min.js"></script>
+<script src="js/product.js"></script>
 <script src="js/js.js"></script>
 </body>
 </html>

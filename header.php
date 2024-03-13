@@ -29,6 +29,13 @@
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+
+	<link rel="stylesheet" type="text/css" href="plugins/flexslider/flexslider.css">
+	<link rel="stylesheet" type="text/css" href="styles/product.css">
+	<link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
+
+
 </head>
 <body>
 <div class="menu">
