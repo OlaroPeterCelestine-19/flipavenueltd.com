@@ -1,22 +1,32 @@
+<?php include '../root/process.php';
+    if (empty($_SESSION['userid'])) {
+        // header("Location: ".SITE_URL.'/login');
+        // //`userid`, `fullname`, `email`, `phone`, `password`, `account_status`, `gender`, `role`, `date_registered`
+    }else{
+        //check user loggedin...
+        $interface = $_SESSION['role'];
+        $fullname   = $_SESSION['fullname'];
+        $email   = $_SESSION['email'];
+        $userid = $_SESSION['userid'];
+        $phone = $_SESSION['phone'];
+        $gender = $_SESSION['gender'];
+        $date_registered = $_SESSION['date_registered'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>FlipAvenue</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -25,26 +35,19 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-
 </head>
-
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
-
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="<?=HOME_URL; ?>" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">FlipAvenue</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
     <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
@@ -60,21 +63,12 @@
             <i class="bi bi-search"></i>
           </a>
         </li><!-- End Search Icon-->
-
         <li class="nav-item dropdown">
-
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">4</span>
           </a><!-- End Notification Icon -->
-
-      
-
         </li><!-- End Notification Nav -->
-
-        
-
-   
 
         <li class="nav-item dropdown pe-3">
 
@@ -86,15 +80,13 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6>Welcome admin</h6>
-              <span>Flip</span>
+              <span><?=$_SESSION['fullname']; ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
-
-
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="<?=SITE_URL;?>/logout" onclick="return confirm('Do you really want to logout?. '); ">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -114,7 +106,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="<?=HOME_URL; ?>">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -161,21 +153,14 @@
               <i class="bi bi-circle"></i><span>Sales Report</span>
             </a>
           </li>
-        
             <li>
             <a href="expense_report.php">
               <i class="bi bi-circle"></i><span>Inventory Report</span>
             </a>
           </li>
-         
         </ul>
       </li><!-- End Forms Nav -->
-
       </li><!-- End Tables Nav -->
-
-
-
-
       <li class="nav-heading">Stock</li>
 
       <li class="nav-item">
@@ -202,7 +187,7 @@
  
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="logout.php">
+        <a class="nav-link collapsed" onclick="return confirm('Do you really want to logout?. '); " href="<?=SITE_URL; ?>/logout">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>LogOut</span>
         </a>
