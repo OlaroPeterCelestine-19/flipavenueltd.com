@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from preview.colorlib.com/theme/littlecloset/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Mar 2024 13:28:24 GMT -->
 <head>
 <title>Cart</title>
 <meta charset="utf-8">
@@ -346,6 +344,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"863c5d337e2573fc","b":1,"version":"2024.2.4","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
 </body>
-
-<!-- Mirrored from preview.colorlib.com/theme/littlecloset/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 13 Mar 2024 13:28:27 GMT -->
 </html>
