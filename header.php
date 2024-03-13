@@ -1,3 +1,7 @@
+<?php 
+include 'root/process.php'; 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,21 +76,21 @@
 		</nav> -->
 		<div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
 			<div class="header_search">
-				<form action="#" id="header_search_form">
-					<input type="text" class="search_input" placeholder="Search Item" required="required">
+				<form action="" id="header_search_form">
+					<input type="text" class="search_input" placeholder="Search Product..." required="required">
 					<button class="header_search_button"><img src="images/search.png" alt></button>
 				</form>
 			</div>
-		<!-- 	<div class="user">
-				<a href="#">
+			<div class="user">
+				<a href="#user-login" data-toggle="modal">
 					<div>
 						<img src="images/user.svg" alt="https://www.flaticon.com/authors/freepik">
-						<div>1</div>
+						<!-- <div>1</div> -->
 					</div>
 				</a>
-			</div> -->
+			</div>
 			<div class="cart">
-				<a href="cart.html">
+				<a href="cart">
 					<div>
 						<img class="svg" src="images/cart.svg" alt="https://www.flaticon.com/authors/freepik">
 					</div>
@@ -94,8 +98,58 @@
 			</div>
 			<div class="header_phone d-flex flex-row align-items-center justify-content-start">
 			<div><div><img src="images/phone.svg" alt="https://www.flaticon.com/authors/freepik"></div></div>
-			<div>+1 912-252-7350</div>
+			<!-- <div>+1 912-252-7350</div> -->
 			</div>
 		</div>
 	</div>
 </header>
+
+<!-- login form -->
+<!-- edit about user personal info -->
+<div class="modal fade" id="user-login" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="main-wrapper">
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <div class="p-1-6 p-sm-1-9 p-lg-2-2 p-xl-2-9 bg-white rounded-start-md-10px rounded-end-lg-10px">
+                                <div class="text-center mb-1-6 mb-lg-1-9">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">
+                                            <img style="width: 30px;" src="uploads/logo.jpg">-Login
+                                        </h4>
+                                    </div>
+                                </div>
+                                <form method="POST" action="">
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="profile_desc" class="form-label fs-6 text-muted">Email Address</label>
+                                        <div class="form-group">
+                                           <input type="" name="email" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <label for="profile_desc" class="form-label fs-6 text-muted">Password</label>
+                                        <div class="form-group">
+                                           <input type="password" name="password" class="form-control" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="d-grid">
+                                            <button type="submit" name="login_btn" class="btn btn-success">Login</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

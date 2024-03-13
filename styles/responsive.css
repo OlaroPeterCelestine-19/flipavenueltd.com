@@ -67,6 +67,11 @@
 	{
 		margin-right: 47px;
 	}
+	.search_input
+	{
+/*		width: 300px;*/
+		width: 900px;
+	}
 }
 
 /************
@@ -115,7 +120,8 @@
 	}
 	.search_input
 	{
-		width: 300px;
+/*		width: 300px;*/
+		width: 678px;
 	}
 }
 
@@ -194,7 +200,8 @@
 	}
 	.search_input
 	{
-		width: 210px;
+/*		width: 210px;*/
+		width: 398px;
 	}
 	.home_item_side
 	{
@@ -274,16 +281,154 @@
 
 @media only screen and (max-width: 880px)
 {
-	
+	.header_phone
+	{
+		display: none !important;
+	}
+	.search_input
+	{
+/*		width: 210px;*/
+		width: 398px;
+	}
+	.home_item_side
+	{
+		margin-top: 127px;
+	}
+	.header_content
+	{
+		padding-right: 25px;
+	}
+	.cart
+	{
+		margin-right: 0;
+	}
+	.boxes > .container
+	{
+		max-width: 720px;
+	}
+	.feature_col:not(:last-child)
+	{
+		margin-bottom: 30px;
+	}
+	.feature_col:not(:nth-child(2)) .feature
+	{
+		margin-top: 0px;
+	}
+	.feature_col:nth-child(2) .feature
+	{
+		width: 100%;
+		left: auto;
+	}
+	.feature_col:nth-child(3) .feature_title
+	{
+		max-width: 100%;
+	}
+	.footer_col:not(:last-child)
+	{
+		margin-bottom: 30px;
+	}
+	.footer_content
+	{
+		padding-bottom: 120px;
+	}
+	.footer_social
+	{
+		margin-top: 100px;
+	}
+	.footer_nav ul li:not(:last-of-type)
+	{
+		margin-right: 27px;
+	}
+	.copyright
+	{
+		font-size: 14px;
+	}
+	.footer_nav ul li a
+	{
+		font-size: 14px;
+	}
+	.footer_about
+	{
+		padding-top: 100px;
+	}
 }
 
 /************
 9. 768px
 ************/
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 668px)
 {
-	
+	.header_phone
+	{
+		display: none !important;
+	}
+	.search_input
+	{
+/*		width: 210px;*/
+		width: 398px;
+	}
+	.home_item_side
+	{
+		margin-top: 127px;
+	}
+	.header_content
+	{
+		padding-right: 25px;
+	}
+	.cart
+	{
+		margin-right: 0;
+	}
+	.boxes > .container
+	{
+		max-width: 720px;
+	}
+	.feature_col:not(:last-child)
+	{
+		margin-bottom: 30px;
+	}
+	.feature_col:not(:nth-child(2)) .feature
+	{
+		margin-top: 0px;
+	}
+	.feature_col:nth-child(2) .feature
+	{
+		width: 100%;
+		left: auto;
+	}
+	.feature_col:nth-child(3) .feature_title
+	{
+		max-width: 100%;
+	}
+	.footer_col:not(:last-child)
+	{
+		margin-bottom: 30px;
+	}
+	.footer_content
+	{
+		padding-bottom: 120px;
+	}
+	.footer_social
+	{
+		margin-top: 100px;
+	}
+	.footer_nav ul li:not(:last-of-type)
+	{
+		margin-right: 27px;
+	}
+	.copyright
+	{
+		font-size: 14px;
+	}
+	.footer_nav ul li a
+	{
+		font-size: 14px;
+	}
+	.footer_about
+	{
+		padding-top: 100px;
+	}
 }
 
 /************
