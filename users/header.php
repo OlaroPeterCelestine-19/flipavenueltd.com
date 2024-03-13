@@ -128,18 +128,23 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="pendingOrders.php">
               <i class="bi bi-circle"></i><span>Pending</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="rejectedOrders.php">
               <i class="bi bi-circle"></i><span>Rejected</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
+            <a href="confirmedOrders.php">
               <i class="bi bi-circle"></i><span>Confirmed</span>
+            </a>
+          </li>
+            <li>
+            <a href="deliveredOrders.php">
+              <i class="bi bi-circle"></i><span>Delivered</span>
             </a>
           </li>
          
@@ -152,13 +157,13 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="sales_report.php">
               <i class="bi bi-circle"></i><span>Sales Report</span>
             </a>
           </li>
         
             <li>
-            <a href="forms-layouts.html">
+            <a href="expense_report.php">
               <i class="bi bi-circle"></i><span>Inventory Report</span>
             </a>
           </li>
