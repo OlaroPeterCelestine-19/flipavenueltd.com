@@ -9,21 +9,23 @@ if (isset($_POST['login_btn'])) {
     trim(extract($_POST));
     if (count($errors) == 0) {
     $password = sha1($password);
-    $result = $dbh->query("SELECT * FROM users WHERE phone = '$phone' AND status = 'Active' ");
-    $result2 = $dbh->query("SELECT * FROM users WHERE phone = '$phone' AND status = 'Pending' ");
+    $result = $dbh->query("SELECT * FROM users WHERE email = '$email' AND account_status = 'Active' AND role = 'admin' ");
+    $result2 = $dbh->query("SELECT * FROM users WHERE email = '$email' AND account_status = 'Pending' ");
         if ($result->rowCount() == 1) {
             $rows = $result->fetch(PDO::FETCH_OBJ);
-            if ($rows->status == 'Active') {  
-                //`userid`, `fullname`, `phone`, `token`, `status`, `role`, `date_registered`
-                $token = rand(11111, 99999);
-                $dbh->query("UPDATE users SET token = '$token' WHERE userid = '".$rows->userid."' ");
-                $message = "Hi ".$rows->fullname.', your Login token is  '. $token;
-                @json_decode(send_sms_yoola_api($api_key, $rows->phone, $message), true);
+            if ($rows->account_status == 'active') {  
+                //`userid`, `fullname`, `email`, `phone`, `password`, `account_status`, `gender`, `role`, `date_registered`
+                $_SESSION['userid'] = $row->userid;
+                $_SESSION['fullname'] = $row->fullname;
+                $_SESSION['email'] = $row->email;
+                $_SESSION['phone'] = $row->phone;
+                $_SESSION['status'] = $row->status;
+                $_SESSION['role'] = $row->role;
+                $_SESSION['date_registered'] = $row->date_registered;
 
-                $_SESSION['phone'] = $phone;
                 $_SESSION['loader'] = '<center><div class="spinner-border text-success"></div></center>';
-                $_SESSION['status'] = '<div class="card card-body alert alert-success text-center">Account matched, New Token generated Successfully</div>';
-                header("refresh:3; url=".HOME_URL.'/otp');
+                $_SESSION['status'] = '<div class="card card-body alert alert-success text-center">Login Successfully</div>';
+                header("refresh:3; url=".HOME_URL);
             }else{
                 $_SESSION['status'] = '<div id="note1" class="card card-body alert alert-primary text-center">
                 Account mateched, But Under Preview!</div>';
