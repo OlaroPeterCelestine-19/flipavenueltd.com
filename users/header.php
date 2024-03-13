@@ -120,22 +120,22 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="pendingOrders.php">
+            <a href="pendingOrders">
               <i class="bi bi-circle"></i><span>Pending</span>
             </a>
           </li>
           <li>
-            <a href="rejectedOrders.php">
+            <a href="rejectedOrders">
               <i class="bi bi-circle"></i><span>Rejected</span>
             </a>
           </li>
           <li>
-            <a href="confirmedOrders.php">
+            <a href="confirmedOrders">
               <i class="bi bi-circle"></i><span>Confirmed</span>
             </a>
           </li>
             <li>
-            <a href="deliveredOrders.php">
+            <a href="deliveredOrders">
               <i class="bi bi-circle"></i><span>Delivered</span>
             </a>
           </li>
@@ -149,12 +149,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="sales_report.php">
+            <a href="sales_report">
               <i class="bi bi-circle"></i><span>Sales Report</span>
             </a>
           </li>
             <li>
-            <a href="expense_report.php">
+            <a href="expense_report">
               <i class="bi bi-circle"></i><span>Inventory Report</span>
             </a>
           </li>
@@ -164,21 +164,21 @@
       <li class="nav-heading">Stock</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="stock.php">
+        <a class="nav-link collapsed" href="stock">
           <i class="bi bi-person"></i>
           <span> Manage Stock</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="lowstock.php">
+        <a class="nav-link collapsed" href="lowstock">
           <i class="bi bi-question-circle"></i>
           <span>Low Stock</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="outstock.php">
+        <a class="nav-link collapsed" href="outstock">
           <i class="bi bi-envelope"></i>
           <span>Out Of Stock</span>
         </a>

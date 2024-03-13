@@ -20,7 +20,7 @@
 <div class="home_items">
 <div class="row">
 <div class="col-sm-3 offset-lg-1">
-<div class="home_item_side"><a href="product.html"><img src="images/home_1.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_1.jpg" alt></a></div>
 </div>
 <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 <div class="product home_item_large">
@@ -35,8 +35,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -58,7 +58,7 @@
 </div>
 </div>
 <div class="col-sm-3">
-<div class="home_item_side"><a href="product.html"><img src="images/home_3.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_3.jpg" alt></a></div>
 </div>
 </div>
 </div>
@@ -81,7 +81,7 @@
 <div class="home_items">
 <div class="row">
 <div class="col-sm-3 offset-lg-1">
-<div class="home_item_side"><a href="product.html"><img src="images/home_1.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_1.jpg" alt></a></div>
 </div>
 <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 <div class="product home_item_large">
@@ -96,8 +96,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -119,7 +119,7 @@
 </div>
 </div>
 <div class="col-sm-3">
-<div class="home_item_side"><a href="product.html"><img src="images/home_3.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_3.jpg" alt></a></div>
 </div>
 </div>
 </div>
@@ -142,7 +142,7 @@
 <div class="home_items">
 <div class="row">
 <div class="col-sm-3 offset-lg-1">
-<div class="home_item_side"><a href="product.html"><img src="images/home_1.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_1.jpg" alt></a></div>
 </div>
 <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 <div class="product home_item_large">
@@ -157,8 +157,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -180,7 +180,7 @@
 </div>
 </div>
 <div class="col-sm-3">
-<div class="home_item_side"><a href="product.html"><img src="images/home_3.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_3.jpg" alt></a></div>
 </div>
 </div>
 </div>
@@ -203,7 +203,7 @@
 <div class="home_items">
 <div class="row">
 <div class="col-sm-3 offset-lg-1">
-<div class="home_item_side"><a href="product.html"><img src="images/home_1.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_1.jpg" alt></a></div>
 </div>
 <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-2 offset-md-0">
 <div class="product home_item_large">
@@ -218,8 +218,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -241,7 +241,7 @@
 </div>
 </div>
 <div class="col-sm-3">
-<div class="home_item_side"><a href="product.html"><img src="images/home_3.jpg" alt></a></div>
+<div class="home_item_side"><a href="product"><img src="images/home_3.jpg" alt></a></div>
 </div>
 </div>
 </div>
@@ -285,10 +285,10 @@
 <div class="col">
 <div class="page_nav">
 <ul class="d-flex flex-row align-items-start justify-content-center">
-<li class="active"><a href="category.html">Women</a></li>
-<li><a href="category.html">Men</a></li>
-<li><a href="category.html">Kids</a></li>
-<li><a href="category.html">Home Deco</a></li>
+<li class="active"><a href="category">Women</a></li>
+<li><a href="category">Men</a></li>
+<li><a href="category">Kids</a></li>
+<li><a href="category">Home Deco</a></li>
 </ul>
 </div>
 </div>
@@ -302,8 +302,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -332,8 +332,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -362,8 +362,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -392,8 +392,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -422,8 +422,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -452,8 +452,8 @@
 <div class="product_info d-flex flex-row align-items-start justify-content-start">
 <div>
 <div>
-<div class="product_name"><a href="product.html">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category.html">Category</a></div>
+<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+<div class="product_category">In <a href="category">Category</a></div>
 </div>
 </div>
 <div class="ml-auto text-right">
@@ -494,7 +494,7 @@
 <div class="box_content d-flex flex-row align-items-center justify-content-start">
 <div class="box_left">
 <div class="box_image">
-<a href="category.html">
+<a href="category">
 <div class="background_image" style="background-image:url(images/box_1_img.jpg)"></div>
 </a>
 </div>
@@ -510,7 +510,7 @@
 <div class="box_content d-flex flex-row align-items-center justify-content-start">
 <div class="box_left">
 <div class="box_image">
-<a href="category.html">
+<a href="category">
 <div class="background_image" style="background-image:url(images/box_2_img.jpg)"></div>
 </a>
 </div>
@@ -526,7 +526,7 @@
 <div class="box_content d-flex flex-row align-items-center justify-content-start">
 <div class="box_left">
 <div class="box_image">
-<a href="category.html">
+<a href="category">
 <div class="background_image" style="background-image:url(images/box_3_img.jpg)"></div>
 </a>
 </div>
