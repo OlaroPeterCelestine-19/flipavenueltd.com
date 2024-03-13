@@ -1,7 +1,7 @@
 <?php include 'header.php' ?>
 
 
-    <div class="pagetitle">
+   <div class="pagetitle">
       <h1>Data Tables</h1>
       <nav>
         <ol class="breadcrumb">
