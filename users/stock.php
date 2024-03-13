@@ -13,63 +13,65 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body"> 
-                    <form class="row g-3">
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="" class="form-control" id="" placeholder="Your Licence">
-                    <label for="">Product Name</label>
+                  <form>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control">
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="" class="form-control" id="" placeholder="Phone number">
-                    <label for="">Price</label>
-                  </div>
-                </div>
-                <div class="col-6">
-                <label for="floatingPassword"> image1</label>
+                  <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
                   <div class="col-sm-10">
                     <input class="form-control" type="file" id="formFile">
                   </div>
                 </div>
-                <div class="col-6">
-                <label for="floatingPassword"> image2</label>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Price</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    <input type="text" class="form-control">
                   </div>
                 </div>
-                <div class="col-6">
-                <label for="floatingPassword"> image3</label>
+               
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Quantity</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    <input type="number" class="form-control">
                   </div>
                 </div>
-                <div class="col-6">
-                <label for="floatingPassword"> image4</label>
+              
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-2 col-form-label">Date Added</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    <input type="date" class="form-control">
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="col-md-12">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingCity" placeholder="City">
-                      <label for="floatingCity">Location</label>
-                    </div>
+               
+
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" style="height: 100px"></textarea>
                   </div>
                 </div>
+              
+        
+
+
+
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                  </div>
                 </div>
-                <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Add</button>
-                    </div>
-              </form>
+
                   
                     </div>
                     
                   </div>
                 </div>
-              </div><!-- End Basic Modal-->
+              </div>
 
             </div>
           
@@ -86,8 +88,10 @@
                   <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Name</th>
-                    <th scope="col">price</th>
-                    <th scope="col">images</th>
+                    <th scope="col">Images</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -96,9 +100,11 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                    <td></td>
                     <td >
-                    <a class="btn btn-primary" href="#" role="button">edit</a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">delete</a>
+                    <a class="btn btn-primary" href="#" role="button">Update</a>
+                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                 </tbody>
