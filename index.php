@@ -4,10 +4,8 @@
 <div class="super_overlay"></div>
 
 <div class="home">
-
 <div class="home_slider_container">
 <div class="owl-carousel owl-theme home_slider">
-
 <div class="owl-item">
 <div class="background_image" style="background-image:url(images/home.jpg)"></div>
 <div class="container fill_height">
@@ -273,270 +271,52 @@
 </div>
 </div>
 </div>
+
+
+
 <div class="products">
 <div class="container">
 <div class="row">
 <div class="col-lg-6 offset-lg-3">
-<div class="section_title text-center">Popular on Little Closet</div>
+<div class="section_title text-center">Products</div>
 </div>
 </div>
-<div class="row page_nav_row">
-<div class="col">
-<div class="page_nav">
-<ul class="d-flex flex-row align-items-start justify-content-center">
-<li class="active"><a href="category">Women</a></li>
-<li><a href="category">Men</a></li>
-<li><a href="category">Kids</a></li>
-<li><a href="category">Home Deco</a></li>
-</ul>
-</div>
-</div>
-</div>
+
 <div class="row products_row">
 
+<?php $stock = $dbh->query("SELECT * FROM products ORDER BY pid DESC ");
+while ($rx = $stock->fetch(PDO::FETCH_OBJ)) { ?>
 <div class="col-xl-4 col-md-6">
-<div class="product">
-<div class="product_image"><img src="images/product_1.jpg" alt></div>
-<div class="product_content">
-<div class="product_info d-flex flex-row align-items-start justify-content-start">
-<div>
-<div>
-<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category">Category</a></div>
+	<div class="product">
+		<div class="product_image"><img src="<?=$rx->ppic;?>" alt></div>
+		<div class="product_content">
+			<div class="product_info d-flex flex-row align-items-start justify-content-start">
+				<div>
+					<div>
+						<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
+						<div class="product_category">In <a href="category">Category</a></div>
+					</div>
+				</div>
+				<div class="ml-auto text-right">
+					<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
+					<div class="product_price text-right">$3<span>.99</span></div>
+				</div>
+			</div>
+			<div class="product_buttons">
+				<div class="text-right d-flex flex-row align-items-start justify-content-start">
+					<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
+						<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
+					</div>
+					<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
+					<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-</div>
-<div class="ml-auto text-right">
-<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="product_price text-right">$3<span>.99</span></div>
-</div>
-</div>
-<div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
-<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<?php } ?>
 
-<div class="col-xl-4 col-md-6">
-<div class="product">
-<div class="product_image"><img src="images/product_2.jpg" alt></div>
-<div class="product_content">
-<div class="product_info d-flex flex-row align-items-start justify-content-start">
-<div>
-<div>
-<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category">Category</a></div>
-</div>
-</div>
-<div class="ml-auto text-right">
-<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="product_price text-right">$3<span>.99</span></div>
-</div>
-</div>
-<div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
-<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-xl-4 col-md-6">
-<div class="product">
-<div class="product_image"><img src="images/product_3.jpg" alt></div>
-<div class="product_content">
-<div class="product_info d-flex flex-row align-items-start justify-content-start">
-<div>
-<div>
-<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category">Category</a></div>
-</div>
-</div>
-<div class="ml-auto text-right">
-<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="product_price text-right">$3<span>.99</span></div>
-</div>
-</div>
-<div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
-<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-xl-4 col-md-6">
-<div class="product">
-<div class="product_image"><img src="images/product_4.jpg" alt></div>
-<div class="product_content">
-<div class="product_info d-flex flex-row align-items-start justify-content-start">
-<div>
-<div>
-<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category">Category</a></div>
-</div>
-</div>
-<div class="ml-auto text-right">
-<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="product_price text-right">$3<span>.99</span></div>
-</div>
-</div>
-<div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
-<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-xl-4 col-md-6">
-<div class="product">
-<div class="product_image"><img src="images/product_5.jpg" alt></div>
-<div class="product_content">
-<div class="product_info d-flex flex-row align-items-start justify-content-start">
-<div>
-<div>
-<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category">Category</a></div>
-</div>
-</div>
-<div class="ml-auto text-right">
-<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="product_price text-right">$3<span>.99</span></div>
-</div>
-</div>
-<div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
-<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="col-xl-4 col-md-6">
-<div class="product">
-<div class="product_image"><img src="images/product_6.jpg" alt></div>
-<div class="product_content">
-<div class="product_info d-flex flex-row align-items-start justify-content-start">
-<div>
-<div>
-<div class="product_name"><a href="product">Cool Clothing with Brown Stripes</a></div>
-<div class="product_category">In <a href="category">Category</a></div>
-</div>
-</div>
-<div class="ml-auto text-right">
-<div class="rating_r rating_r_4 home_item_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<div class="product_price text-right">$3<span>.99</span></div>
-</div>
-</div>
-<div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
-<div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row load_more_row">
-<div class="col">
-<div class="button load_more ml-auto mr-auto"><a href="#">load more</a></div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="boxes">
-<div class="container">
-<div class="row">
-<div class="col">
-<div class="boxes_container d-flex flex-row align-items-start justify-content-between flex-wrap">
-
-<div class="box">
-<div class="background_image" style="background-image:url(images/box_1.jpg)"></div>
-<div class="box_content d-flex flex-row align-items-center justify-content-start">
-<div class="box_left">
-<div class="box_image">
-<a href="category">
-<div class="background_image" style="background-image:url(images/box_1_img.jpg)"></div>
-</a>
-</div>
-</div>
-<div class="box_right text-center">
-<div class="box_title">Trendsetter Collection</div>
-</div>
-</div>
-</div>
-
-<div class="box">
-<div class="background_image" style="background-image:url(images/box_2.jpg)"></div>
-<div class="box_content d-flex flex-row align-items-center justify-content-start">
-<div class="box_left">
-<div class="box_image">
-<a href="category">
-<div class="background_image" style="background-image:url(images/box_2_img.jpg)"></div>
-</a>
-</div>
-</div>
-<div class="box_right text-center">
-<div class="box_title">Popular Choice</div>
-</div>
-</div>
-</div>
-
-<div class="box">
-<div class="background_image" style="background-image:url(images/box_3.jpg)"></div>
-<div class="box_content d-flex flex-row align-items-center justify-content-start">
-<div class="box_left">
-<div class="box_image">
-<a href="category">
-<div class="background_image" style="background-image:url(images/box_3_img.jpg)"></div>
-</a>
-</div>
-</div>
-<div class="box_right text-center">
-<div class="box_title">Popular Choice</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>

@@ -61,97 +61,6 @@ if (isset($_POST['login_btn'])) {
         $_SESSION['status'] ='<div class="alert alert-danger text-center">Phone number already exists</div>';
     }
 
-}elseif (isset($_POST['verify'])) {
-    trim(extract($_POST));
-    if (count($errors) == 0) {
-        $result = $dbh->query("SELECT * FROM users WHERE phone = '$phone' AND token = '$otp' " );
-        if ($result->rowCount() == 1) {
-        $row = $result->fetch(PDO::FETCH_OBJ);
-         //`userid`, `fullname`, `phone`, `token`, `status`, `role`, `date_registered`
-        $_SESSION['userid'] = $row->userid;
-        $_SESSION['fullname'] = $row->fullname;
-        $_SESSION['phone'] = $row->phone;
-        $_SESSION['status'] = $row->status;
-        $_SESSION['role'] = $row->role;
-        $_SESSION['date_registered'] = $row->date_registered;
-        if ($result->rowCount() > 0) {
-            if ($row->role == 'admin') {
-                $_SESSION['loader'] = '<center><div class="spinner-border text-success"></div></center>';
-                $_SESSION['status'] = '<div class="card card-body alert alert-success text-center">
-                <strong>Login Successful, Redirecting...</strong></div>';
-                header("refresh:3; url=".HOME_URL);
-            }else{
-                $_SESSION['loader'] = '<center><div class="spinner-border text-success"></div></center>';
-                $_SESSION['status'] = '<div class="card card-body alert alert-success text-center">
-                <strong>Login Successful, Redirecting...</strong></div>';
-                header("refresh:3; url=".SITE_URL);
-            }
-           
-            }else{
-                $_SESSION['status'] = '<div class="card card-body alert alert-danger text-center">
-                Login failed, please check your login details again</div>';
-            }
-    }else{
-        $_SESSION['status_err'] = '<div class="card card-body alert alert-danger text-center">
-                <strong>Wrong Token inserted</strong></div>';
-        // echo "<script>
-        //     alert('Wrong Token inserted');
-        //     window.location = '".SITE_URL."/token';
-        //     </script>";
-    }
-    }
-
-}elseif (isset($_POST['resent_token_btn'])) {
-    trim(extract($_POST));
-    if (count($errors) == 0) {
-        $result = $dbh->query("SELECT * FROM users WHERE phone = '$phone' " );
-        if ($result->rowCount() == 1) {
-            $token = rand(11111,99999);
-            $dbh->query("UPDATE users SET token = '$token' WHERE phone = '$phone' ");
-            $rx = dbRow("SELECT * FROM users WHERE phone = '$phone' ");
-            $subj = "POST KAZI - Account Verification Token";
-            $body = "Hello {$rx->fullname} you account verification token is: <br>
-                <h1><b>{$token}</b></h1>";
-            GoMail($email,$subj,$body);
-            $_SESSION['email'] = $email;
-            $_SESSION['status'] = '<div class="alert alert-success text-center">Verification token is sent to your email successfully, Please enter the OTP send to you via Email to complete registration process</div>';
-            header("refresh:3; url=".SITE_URL.'/token');
-        }else{
-            $_SESSION['status'] = '<div class="card card-body alert alert-warning text-center">
-            Account Verification Failed., please check your Token and try again.</div>';
-        }
-    }
-}elseif(isset($_POST['new_system_user_reg_btn'])){
-    trim(extract($_POST));
-    if (count($errors) == 0) {
-        // `userid`, `fullname`, `phone`, `token`, `status`, `role`, `date_registered`
-        $check = $dbh->query("SELECT phone FROM users WHERE phone='$phone' ")->fetchColumn();
-      if(!$check){
-        $pass= sha1($password);
-        $userid = rand(11111111,99999999);
-        $token = rand(11111,99999);
-        $fullname = addslashes($fullname);
-        $sql = "INSERT INTO users VALUES(NULL,'$fullname','$phone','','Active','$role','$today')";
-        $result = dbCreate($sql);
-        if($result == 1){
-            $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Success!</strong> System User Registered Successfully.
-            </div>';
-            header("refresh:3; url=".HOME_URL.'?users');
-        }else{
-            $_SESSION['status'] = '<div class="alert alert-danger alert-dismissible">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Invalid!</strong> User Registration Failed.
-            </div>';
-        }
-     }else{
-        echo "<script>
-        alert('Username already registered');
-        window.location = '".SITE_URL."/users';
-        </script>";
-        }
-    }
 }elseif(isset($_POST['update_user_details_btn'])){
     trim(extract($_POST));
     //`userid`, `fullname`, `email`, `role`, `password`, `phone`, `token`, `status`, `date_registered`, `pic`
@@ -170,43 +79,41 @@ if (isset($_POST['login_btn'])) {
             </script>";
     }
 
-}elseif (isset($_POST['add_new_gas_category_btn'])) {
+}elseif (isset($_POST['submit_product_btn'])) {
     trim(extract($_POST));
-    //`cat_id`, `cat_name`, `cat_photo`
-    $filename = trim($_FILES['cat_photo']['name']);
+    //`pid`, `pname`, `pprice`, `ppic`, `pqnty`, `pdesc`
+    $filename = trim($_FILES['ppic']['name']);
     $chk = rand(1111111111111,9999999999999);
     $ext = strrchr($filename, ".");
-    $cat_photo = $chk.$ext;
-    $target_img = "../uploads/".$cat_photo;
-    $url = SITE_URL.'/uploads/'.$cat_photo;
-    $cat_name = addslashes($cat_name);
-    $cat_check = $dbh->query("SELECT * FROM categories WHERE cat_name = '$cat_name' ")->fetchColumn();
-    if (!$cat_check) {
-    $result = dbCreate("INSERT INTO categories VALUES(NULL,'$cat_name','$url')");
-     if (move_uploaded_file($_FILES['cat_photo']['tmp_name'], $target_img)) {
+    $ppic = $chk.$ext;
+    $target_img = "../uploads/".$ppic;
+    $url = SITE_URL.'/uploads/'.$ppic;
+    $pname = addslashes($pname);
+    $pqnty = addslashes($pqnty);
+    $pdesc = addslashes($pdesc);
+
+     $pprice = $_POST['pprice'];
+    $pprice = str_replace(',', '', $pprice);
+    // `pid`, `pname`, `pprice`, `ppic`, `pqnty`, `pdesc`, `pdate`, `pstatus`
+    $result = dbCreate("INSERT INTO products VALUES(NULL,'$pname','$pprice','$url','$pqnty','$pdesc','$today','Available')");
+     if (move_uploaded_file($_FILES['ppic']['tmp_name'], $target_img)) {
           $msg ="Image uploaded Successfully";
           }else{
             $msg ="There was a problem uploading image";
           }
         if($result == 1){
-            $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
+            $_SESSION['status'] = '<div class="alert alert-success alert-dismissible" id="note2">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong>Success!</strong>Category Uploaded Successfully.
             </div>';
-            header("refresh:2; url=".HOME_URL."?categories");
+            header("refresh:2; url=".HOME_URL."/stock");
         }else{
-            $_SESSION['status'] = '<div class="alert alert-danger alert-dismissible">
+            $_SESSION['status'] = '<div class="alert alert-danger alert-dismissible" id="note2">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong>Failed!</strong>Category Upload Failed.
             </div>';
         }
 
-    }else{
-        $_SESSION['status'] = '<div class="alert alert-info alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Failed!</strong>This Category already Exist.
-        </div>';
-    }
 
 }elseif (isset($_POST['gas_category_details_btn'])) {
    trim(extract($_POST));
