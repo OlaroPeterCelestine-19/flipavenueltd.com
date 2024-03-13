@@ -85,14 +85,30 @@
 					<button class="header_search_button"><img src="images/search.png" alt></button>
 				</form>
 			</div>
+			<?php if(empty($_SESSION['userid'])) { ?>
 			<div class="user">
 				<a href="#user-login" data-toggle="modal">
 					<div>
 						<img src="images/user.svg" alt="https://www.flaticon.com/authors/freepik">
-						<!-- <div>1</div> -->
 					</div>
 				</a>
 			</div>
+				<?php }else{?>
+				<div class="user">
+					<a href="<?=HOME_URL; ?>">
+						<div>
+							<img src="uploads/home.png" alt="https://www.flaticon.com/authors/freepik">
+						</div>
+					</a>
+				</div>
+				<div class="user">
+					<a href="logout" onclick="return confirm('Do you really want to logout ?. '); ">
+						<div>
+							<img src="uploads/exit.png" alt="https://www.flaticon.com/authors/freepik">
+						</div>
+					</a>
+				</div>
+				<?php } ?>
 			<div class="cart">
 				<a href="cart">
 					<div>

@@ -9,17 +9,17 @@ if (isset($_POST['login_btn'])) {
     trim(extract($_POST));
     if (count($errors) == 0) {
     $password = sha1($password);
-    $result = $dbh->query("SELECT * FROM users WHERE email = '$email' AND account_status = 'Active' AND role = 'admin' ");
-    $result2 = $dbh->query("SELECT * FROM users WHERE email = '$email' AND account_status = 'Pending' ");
+    $result = $dbh->query("SELECT * FROM users WHERE email = '$email' AND account_status = 'Active' AND role = 'admin' AND password = '$password' ");
+    $result2 = $dbh->query("SELECT * FROM users WHERE email = '$email' AND account_status = 'Pending' AND password = '$password' ");
         if ($result->rowCount() == 1) {
-            $rows = $result->fetch(PDO::FETCH_OBJ);
-            if ($rows->account_status == 'active') {  
+            $row = $result->fetch(PDO::FETCH_OBJ);
+            if ($row->account_status == 'active') {  
                 //`userid`, `fullname`, `email`, `phone`, `password`, `account_status`, `gender`, `role`, `date_registered`
                 $_SESSION['userid'] = $row->userid;
                 $_SESSION['fullname'] = $row->fullname;
                 $_SESSION['email'] = $row->email;
                 $_SESSION['phone'] = $row->phone;
-                $_SESSION['status'] = $row->status;
+                $_SESSION['gender'] = $row->gender;
                 $_SESSION['role'] = $row->role;
                 $_SESSION['date_registered'] = $row->date_registered;
 
