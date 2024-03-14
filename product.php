@@ -64,6 +64,7 @@ $rx = dbRow("SELECT * FROM products WHERE pid = '$id' ");
 
 <form class="" method="POST" action="">
       <input type="hidden" value="UGX" name="currency">
+      <input type="hidden" value="<?=$rx->pid; ?>" name="pid">
       <div class="row">
          <div class="col-md-12">
               <div class="card-body">
@@ -75,12 +76,6 @@ $rx = dbRow("SELECT * FROM products WHERE pid = '$id' ");
               <div class="card-body">
               <h5 class="card-title" style="float: left;">Customer Email</h5>
               <input type="text" class="form-control" name="customer_email" placeholder="Enter Email" required />
-              </div>
-          </div>
-           <div class="col-md-12">
-              <div class="card-body">
-              <h5 class="card-title" style="float: left;">Customer phone</h5>
-              <input type="text" class="form-control" name="customer_phone" placeholder="Enter Phone Number" required />
               </div>
           </div>
            <div class="col-md-12">

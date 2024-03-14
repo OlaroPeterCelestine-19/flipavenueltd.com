@@ -200,21 +200,33 @@ if (isset($_POST['login_btn'])) {
                 </script>";
     }
 }elseif (isset($_POST['make_payments_btn'])) {
-    // `payment_id`, `pid`, `amount`, `payment_status`, `payment_reference`, `payment_date`, `customer_name`, `customer_email`, `customer_phone`, `customer_address`
+    // `payment_id`, `pid`, `amount`, `currency`, `payment_status`, `payment_reference`, `payment_date`, `customer_name`, `customer_email`, `customer_phone`, `customer_address`
     trim(extract($_POST));
+    if (empty($amount) || empty($method)) {
+        echo "<script>window.alert('Fill all the fields.'); </script>";
+    }
+    sleep(3);
+    $method = trim($_POST['method']);
+    if ($method == 'mtn') {
+        $trx = trim($_POST['mtn_number']);
+    } else {
+        $trx = trim($_POST['airtel_number']);
+    }
+
+    $Phone = "256" . ltrim($trx, $trx[0]);
+
     $amount = addslashes($amount);
     $customer_name = addslashes($customer_name);
     $customer_email = addslashes($customer_email);
-    $customer_phone = addslashes($customer_phone);
     $customer_address = addslashes($customer_address);
     $payment_reference = mt_rand();
-    $sql = $dbh->query("INSERT INTO payments VALUES(NULL, '$amount','Pending','$payment_reference','$today','$customer_name','$customer_email','$customer_phone','$customer_address') ");
+    $sql = $dbh->query("INSERT INTO payments VALUES(NULL,'$pid', '$amount','$currency','Pending','$payment_reference','$today','$customer_name','$customer_email','$Phone','$customer_address') ");
     if ($sql) {
         $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Success!</strong> Order Initiated Successfully.
         </div>';
-        header("refresh:2; url=".HOME_URL.'?packages');
+        // header("refresh:2; url=".HOME_URL.'?packages');
     }
 
 }
