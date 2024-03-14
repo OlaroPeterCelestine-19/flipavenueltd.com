@@ -199,154 +199,25 @@ if (isset($_POST['login_btn'])) {
                 window.location = '".SITE_URL."/auth-login';
                 </script>";
     }
-}elseif (isset($_POST['add_new_package_btn'])) {
+}elseif (isset($_POST['make_payments_btn'])) {
+    // `payment_id`, `pid`, `amount`, `payment_status`, `payment_reference`, `payment_date`, `customer_name`, `customer_email`, `customer_phone`, `customer_address`
     trim(extract($_POST));
-    $pkg = $dbh->query("SELECT package_name FROM packages WHERE package_name = '$package_name' ")->fetchColumn();
-    if (!$pkg) {
-        $sql = $dbh->query("INSERT INTO packages VALUES(NULL, '$package_name') ");
-        if ($sql) {
-            $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Success!</strong> Package added Successfully.
-            </div>';
-            header("refresh:2; url=".HOME_URL.'?packages');
-        }
-
-    }else{
-        $_SESSION['status'] = '<div class="alert alert-danger alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Failed!</strong> Package Name already Exist.
-        </div>'; 
-    }
-}elseif (isset($_POST['update_package_btn'])) {
-    trim(extract($_POST));
-    $sql = $dbh->query("UPDATE packages SET package_name = '$package_name' WHERE package_id = '$package_id' ");
+    $amount = addslashes($amount);
+    $customer_name = addslashes($customer_name);
+    $customer_email = addslashes($customer_email);
+    $customer_phone = addslashes($customer_phone);
+    $customer_address = addslashes($customer_address);
+    $payment_reference = mt_rand();
+    $sql = $dbh->query("INSERT INTO payments VALUES(NULL, '$amount','Pending','$payment_reference','$today','$customer_name','$customer_email','$customer_phone','$customer_address') ");
     if ($sql) {
         $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Package updated Successfully.
+          <strong>Success!</strong> Order Initiated Successfully.
         </div>';
         header("refresh:2; url=".HOME_URL.'?packages');
     }
-}elseif (isset($_POST['add_to_cart_btn'])) {
-    trim(extract($_POST));
-    //`cart_id`, `userid`, `cat_id`, `cd_id`, `package_id`, `cart_status`, `cart_qnty`, `cart_price`, `cart_total_price`, `cart_date`
-    $sql = $dbh->query("INSERT INTO cart VALUES(NULL,'$userid','$cat_id','$cd_id','$package_id','Pending',1,'$cart_price','$cart_price','$today','') ");
-    if ($sql) {
-        $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Cart Added Successfully.
-        </div>';
-        $_SESSION['loader'] = '<center><div class="spinner-border text-success"></div></center>';
-        header("refresh:2; url=".SITE_URL.'/cart');
-    }
-}elseif (isset($_REQUEST['delete-cart'])) {
-    $id = $_GET['delete-cart'];
-      $delx = $dbh->query("DELETE FROM cart WHERE cart_id = '$id' ");
-      if ($delx) {
-        header("Location: ".SITE_URL.'/cart');
-    }
-}elseif (isset($_POST['update_offer_category_details_btn'])) {
-    trim(extract($_POST));
-    //`cd_id`, `cat_id`, `cat_detail`, `package_id`, `category_price`, `offer_price`, `offer_status`
-    $sql = $dbh->query("UPDATE category_details SET category_price = '$offer_price', offer_price = '$category_price',  offer_status = 1 WHERE cd_id = '$cd_id' ");
-    if ($sql) {
-        echo "<script>
-            alert('Offer details updated Successfully');
-            window.location = '".HOME_URL."?categories';
-            </script>";
-    }
-}elseif (isset($_POST['update_offer_offer_category_details_btn'])) {
-    trim(extract($_POST));
-    $sql = $dbh->query("UPDATE category_details SET category_price = '$category_price' WHERE cd_id = '$cd_id' ");
-    if ($sql) {
-        echo "<script>
-            alert('Offer updated Successfully');
-            window.location = '".HOME_URL."?manage-offers';
-            </script>";
-    }
-}elseif (isset($_POST['send_sms_btn'])) {
-    trim(extract($_POST));
-    // $to = "support@flexigas.co";
-    // $subj = $subject;
-    // $body = "Client ".$name.", Phone: ".$phone." <br>".$message;
-    // $result = GoMail($to,$subj,$body);
-    // if ($result) {
-    //       echo "<script>
-    //         alert('Message sent successfully');
-    //         window.location = '".SITE_URL."/contact';
-    //         </script>";
-    // }
-    // $phone_number = "+256".$phone;
-    // $msg = "Client ".$name.", Phone: ".$phone." <br>".$message;
-    //     $curl = curl_init();
-    //     curl_setopt_array($curl, array(
-    //         CURLOPT_URL => 'http://api.textmebot.com/send.php?recipient=%2B256766356042&apikey=Q1jjSU8DfqTm&text='.$msg,
-    //       // CURLOPT_URL => 'http://api.textmebot.com/send.php?recipient='.$phone_number.'&apikey=Q1jjSU8DfqTm&text='.$msg,
-    //       CURLOPT_RETURNTRANSFER => true,
-    //       CURLOPT_ENCODING => '',
-    //       CURLOPT_MAXREDIRS => 10,
-    //       CURLOPT_TIMEOUT => 0,
-    //       CURLOPT_FOLLOWLOCATION => true,
-    //       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //       CURLOPT_CUSTOMREQUEST => 'GET',
-    //     ));
 
-    //     $response = curl_exec($curl);
-
-    //     curl_close($curl);
-    //     // echo $response;
-    //     if ($response) {
-    //         echo "<script>
-    //             alert('Message sent successfully');
-    //             window.location = '".SITE_URL."/contact';
-    //             </script>";
-    //     }
-    
-    $subj = $subject;
-    $body = "Client {$name}, Phone: {$phone} <br>".$message;
-    $result = GoMail($to,$subj,$body);
-    if ($result) {
-          echo "<script>
-            alert('Message sent successfully');
-            window.location = '".SITE_URL."/contact';
-            </script>";
-    }
-
-}elseif (isset($_POST['update_qnty_btn_btn'])) {
-    trim(extract($_POST));
-    // $total = ($cart_price * $cart_qnty);
-    $data = dbRow("SELECT * FROM cart WHERE cart_id = '$cart_id' ");
-    $price = $data->cart_price;
-    $total_price = $data->cart_total_price;
-    $total_p = ($cart_qnty * $price);
-    $sql = $dbh->query("UPDATE cart SET cart_qnty = '$cart_qnty', cart_total_price = '$total_p' WHERE cart_id = '$cart_id'  ");
-    if ($sql) {
-        $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Cart Quantity Updated Successfully.
-        </div>';
-        $_SESSION['loader'] = '<center><div class="spinner-border text-success"></div></center>';
-        header("Location: ".SITE_URL.'/cart');
-    }
-}elseif (isset($_POST['checkout_btn_btn'])) {
-    trim(extract($_POST));
-    // `order_id`, `userid`, `invoice`, `order_status`, `delivery_location`, `receiver_phone`, `payment_method`, `order_date`
-    $invoice = rand(10000,99999);
-    $sql = $dbh->query("INSERT INTO orders VALUES(NULL,'$userid','$invoice','UnPaid','$delivery_location','$receiver_phone','$payment_method','$today') ");
-    if ($sql) {
-        $user = dbRow("SELECT * FROM cart WHERE cart_id = '$cart_id' ");
-        $dbh->query("UPDATE cart SET cart_status = 'UnPaid', invoice = '$invoice' WHERE userid = '$userid' AND cart_date = '$today' ");
-        $url = SITE_URL.'/orders?api='.$invoice;
-        $message = "Hello ".$user->fullname.', Here is your Gas Order Link. '. $url;
-        @json_decode(send_sms_yoola_api($api_key, $rows->phone, $message), true);
-        $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Order taken Successfully.
-        </div>';
-        $_SESSION['loader'] = '<center><div class="spinner-border text-success"></div></center>';
-        header("refresh:2; url=".SITE_URL);
-    }
 }
+
 
 ?>

@@ -22,10 +22,6 @@ $rx = dbRow("SELECT * FROM products WHERE pid = '$id' ");
 <div class="container">
 <div class="row">
 
-
-
-
-
 <div class="col-lg-6">
   <div class="product_image_slider_container">
     <div id="slider" class="flexslider">
@@ -60,30 +56,95 @@ $rx = dbRow("SELECT * FROM products WHERE pid = '$id' ");
 <div class="product_info">
 <div class="product_name"><?=$rx->pname; ?></div>
 <div class="product_rating_container d-flex flex-row align-items-center justify-content-start">
-<div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
-<!-- <div class="product_reviews">4.7 out of (3514)</div> -->
-<div class="product_reviews_link"><a href="#">Reviews</a></div>
+<!-- <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="product_reviews">4.7 out of (3514)</div>
+<div class="product_reviews_link"><a href="#">Reviews</a></div> -->
 </div>
 <div class="product_price">Ugx <span><?=number_format($rx->pprice,2); ?></span></div>
 
-<div class="product_text">
-<p><?=$rx->pdesc; ?></p>
-</div>
+<form class="" method="POST" action="">
+      <input type="hidden" value="UGX" name="currency">
+      <div class="row">
+         <div class="col-md-12">
+              <div class="card-body">
+              <h5 class="card-title" style="float: left;">Customer Name</h5>
+              <input type="text" class="form-control" name="customer_name" placeholder="Enter Name" required />
+              </div>
+          </div>
+           <div class="col-md-12">
+              <div class="card-body">
+              <h5 class="card-title" style="float: left;">Customer Email</h5>
+              <input type="text" class="form-control" name="customer_email" placeholder="Enter Email" required />
+              </div>
+          </div>
+           <div class="col-md-12">
+              <div class="card-body">
+              <h5 class="card-title" style="float: left;">Customer phone</h5>
+              <input type="text" class="form-control" name="customer_phone" placeholder="Enter Phone Number" required />
+              </div>
+          </div>
+           <div class="col-md-12">
+              <div class="card-body">
+              <h5 class="card-title" style="float: left;">Customer Address</h5>
+              <input type="text" class="form-control" name="customer_address" placeholder="Enter Address" required />
+              </div>
+          </div>
+
+          <div class="col-md-6">
+              <div class="card-body">
+              <h5 class="card-title">Amount</h5>
+              <input type="text" readonly class="form-control" value="<?=$rx->pprice; ?>" name="amount" placeholder="Enter Amount" required />
+              </div>
+          </div>
+          <div class="col-md-6">
+             <div class="form-group">
+              <span> <b> Select Payment Method : </b> </span> <br/>
+              <label>
+                <input type="radio" onclick="javascript:yesnoCheck();" name="method" value="mtn" id="yesCheck" required />
+                <img src="uploads/MoMoUg.jpg" width="80" height="50" />
+              </label>
+              <label>
+                <input type="radio" onclick="javascript:yesnoCheck();" name="method" value="airtel" id="noCheck" required />
+                <img src="uploads/airtel.jpg" width="80" />
+              </label>
+            </div>
+          
+          <div class="form-group" id="ifYes" style="display:none">
+            <span> <b> MTN Number : </b> </span>
+            <input class="form-control" name="mtn_number" placeholder="Enter Valid MTN Number" pattern="^(0|256|\+256)(77|78|76)([0-9])(\d{6,6})$" maxlength="10" title="Please enter valid MTN Number" id="mtn" type="text" value=""  />
+          </div>
+          <div class="form-group" id="ifNo" style="display:none">
+            <span> <b> Airtel Number : </b> </span>
+            <input class="form-control" name="airtel_number" placeholder="Enter Valid Airtel Number" pattern="^(0|256|\+256)(75|70)([0-9])(\d{6,6})$" maxlength="10" title="Please enter valid Airtel Number" id="airtel" type="text" value=""  />
+           </div>
+          </div>
+
+         <div class="col-md-6">
+            <div class="form-group"><br>
+              <button class="btn btn-primary solid blank" name="make_payments_btn" type="submit">
+              Make Payment </button>
+            </div>
+          </div>
+      </div>
+    </form>
+
+
+
 <div class="product_buttons">
-<div class="text-right d-flex flex-row align-items-start justify-content-start">
-<div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
+<!-- <div class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center">
 <div><div><img src="images/heart_2.svg" class="svg" alt><div>+</div></div></div>
-</div>
+</div> -->
+<br><br><br><br><br><br>
 <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-<div><div><img src="images/cart.svg" class="svg" alt><div>+</div></div></div>
+
+  </div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
+<br><br>
 
 <div class="boxes">
   <div class="container">
