@@ -30,7 +30,7 @@
             <div class="row mb-3">
               <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
               <div class="col-sm-10">
-                <input class="form-control" type="file" name="ppic" id="formFile" accept=".png, jpg, jpeg" required>
+                <input class="form-control" type="file" name="ppic" id="formFile" accept=".png, .jpg, .jpeg" required>
               </div>
             </div>
            
@@ -78,11 +78,8 @@
             <thead>
               <tr>
                 <th scope="col">No.</th>
-                <th scope="col">Name</th>
-                <th scope="col">Images</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Description</th>
+                <th scope="col">Product Details</th>
+                <th scope="col">Photos</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -92,17 +89,38 @@
               while ($rx = $stckz->fetch(PDO::FETCH_OBJ)) {?>
                 <tr>
                 <th scope="row"><?=$x++; ?></th>
-                <td><?=$rx->pname;?></td>
-                <td><img src="<?=$rx->ppic;?>" style="width: 80px;"></td>
-                <td><?=$rx->pprice;?></td>
-                <td><?=$rx->pqnty;?></td>
-                <td><?=$rx->pdesc;?></td>
+                <td>
+                  <b>Name:</b>: <?=$rx->pname;?><br>
+                  <b>Price(Ugx)</b>: <?=$rx->pprice;?><br>
+                  <b>Qnty</b>: <?=$rx->pqnty;?><br>
+                  <b>Desc</b>: <?=$rx->pdesc;?><br>
+                  <hr>
+                  <img src="<?=$rx->ppic;?>" style="width: 80px;"><br>
+                </td>
+                <td>
+                  <a href="#add-photo<?=$rx->pid; ?>" data-bs-toggle="modal">Add Photo</a>
+                  <table class="table datatable">
+                    <thead>
+                      <tr>
+                        <th>Photo</th>
+                      </tr>
+                      <tbody>
+                        <?php $dpc = $dbh->query("SELECT * FROM photos WHERE pid = '".$rx->pid."' ");
+                        while ($rr = $dpc->fetch(PDO::FETCH_OBJ)) {?>
+                          <tr>
+                            <td><img src="<?=$rr->photo; ?>" style="width: 100px;"></td>
+                          </tr>
+                        <?php } ?>
+                      </tbody>
+                    </thead>
+                  </table>
+                </td>
                 <td >
                 <a class="btn btn-primary" href="#" role="button">Update</a>
-                <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+                <a href="?del-stock=<?= $rx->pid; ?>" class="btn btn-danger">Delete</a>
                 </td>
               </tr>
-              <?php } ?>
+              <?php include 'add-photo.php'; } ?>
             </tbody>
           </table>
           <!-- End Table with stripped rows -->
