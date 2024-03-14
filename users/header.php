@@ -11,6 +11,15 @@
         $phone = $_SESSION['phone'];
         $gender = $_SESSION['gender'];
         $date_registered = $_SESSION['date_registered'];
+
+      //delete stock
+        if (isset($_REQUEST['del-stock'])) {
+          $id = $_GET['del-stock'];
+          $res = $dbh->query("DELETE FROM products WHERE pid = '$id' ");
+          if ($res) {
+            header("Location: stock");
+          }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -41,7 +50,7 @@
 </head>
 <body>
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+  <header id="header" class="header fixed-top d-flex align-items-center" style="display: none;">
     <div class="d-flex align-items-center justify-content-between">
       <a href="<?=HOME_URL; ?>" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
@@ -113,8 +122,6 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-
-
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -184,19 +191,13 @@
           <span>Out Of Stock</span>
         </a>
       </li><!-- End Contact Page Nav -->
-
- 
-
       <li class="nav-item">
         <a class="nav-link collapsed" onclick="return confirm('Do you really want to logout?. '); " href="<?=SITE_URL; ?>/logout">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>LogOut</span>
         </a>
       </li><!-- End Login Page Nav -->
-
-    
     </ul>
-
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">

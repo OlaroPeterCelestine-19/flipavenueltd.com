@@ -113,26 +113,33 @@ if (isset($_POST['login_btn'])) {
               <strong>Failed!</strong>Category Upload Failed.
             </div>';
         }
-
-
-}elseif (isset($_POST['gas_category_details_btn'])) {
+}elseif (isset($_POST['upload_product_btn'])) {
    trim(extract($_POST));
-   //`cd_id`, `cat_id`, `cat_detail`, `package_id`, `category_price`, `offer_price`, `offer_status`
-    $cat_detail = addslashes($cat_detail);
-    $sql = $dbh->query("INSERT INTO category_details 
-        VALUES(NULL, '$cat_id', '$cat_detail','$package_id','$category_price','',0) ");
-    if ($sql) {
-        $_SESSION['status'] = '<div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Success!</strong> Category Details Updated Successfully.
-        </div>';
-        header("refresh:2; url=".HOME_URL."?categories");
-    }else{
-        echo "<script>
-            alert('User Details Update Failed');
-            window.location = '".HOME_URL."?categories';
-            </script>";
-    }
+    $filename = trim($_FILES['photo']['name']);
+    $chk = rand(1111111111111,9999999999999);
+    $ext = strrchr($filename, ".");
+    $photo = $chk.$ext;
+    $target_img = "../uploads/".$photo;
+    $url = SITE_URL.'/uploads/'.$photo;
+    // `photo_id`, `pid`, `photo`
+    $result = dbCreate("INSERT INTO photos VALUES(NULL,'$pid','$url')");
+     if (move_uploaded_file($_FILES['photo']['tmp_name'], $target_img)) {
+          $msg ="Image uploaded Successfully";
+          }else{
+            $msg ="There was a problem uploading image";
+          }
+        if($result == 1){
+            $_SESSION['status'] = '<div class="alert alert-success alert-dismissible" id="note2">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Success!</strong>Photo Uploaded Successfully.
+            </div>';
+            header("refresh:2; url=".HOME_URL."/stock");
+        }else{
+            $_SESSION['status'] = '<div class="alert alert-danger alert-dismissible" id="note2">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Failed!</strong>Upload Failed.
+            </div>';
+        }
     
 }elseif (isset($_POST['update_category_details_btn'])) {
     trim(extract($_POST));

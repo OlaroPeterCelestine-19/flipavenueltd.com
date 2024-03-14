@@ -29,12 +29,32 @@
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-
-
 	<link rel="stylesheet" type="text/css" href="plugins/flexslider/flexslider.css">
 	<link rel="stylesheet" type="text/css" href="styles/product.css">
 	<link rel="stylesheet" type="text/css" href="styles/product_responsive.css">
 
+	<script type="text/javascript">
+   function yesnoCheck(){
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('mtn').required = true
+        document.getElementById('ifYes').style.display = 'block';
+        document.getElementById('ifNo').style.display = 'none'; 
+        document.getElementById('ifPhone').style.display = 'none'; 
+        document.getElementById('airtel').required = false    
+        }else if(document.getElementById('noCheck').checked) {
+        document.getElementById('airtel').required = true
+        document.getElementById('ifNo').style.display = 'block';
+        document.getElementById('ifYes').style.display = 'none';
+        document.getElementById('ifPhone').style.display = 'none';
+        document.getElementById('mtn').required = false 
+       }else if(document.getElementById('noVisa').checked) {
+        document.getElementById('phone').required = true
+        document.getElementById('ifPhone').style.display = 'block';
+        document.getElementById('ifYes').style.display = 'none';
+        document.getElementById('ifNo').style.display = 'none';
+       }
+    }
+</script>
 
 </head>
 <body>
@@ -76,7 +96,7 @@
 	<div class="header_overlay"></div>
 	<div class="header_content d-flex flex-row align-items-center justify-content-start">
 		<div class="logo">
-			<a href="">
+			<a href="<?=SITE_URL; ?>">
 				<div class="d-flex flex-row align-items-center justify-content-start">
 				<div><img src="uploads/logo.jpg" style="width: 40px;" alt></div>
 				<div>Flipavenuelid</div>

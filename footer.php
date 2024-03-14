@@ -16,6 +16,10 @@
 						</div>
 						<div class="footer_about_text">
 							<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Fusce venenatis vel velit vel euismod.</p>
+							<hr>
+							<img src="uploads/airtel.jpg" style="width: 60px;">
+							<img src="uploads/MoMoUg.jpg" style="width: 60px;">
+							<img src="uploads/visa.jpg" style="width: 100px;">
 						</div>
 					</div>
 				</div>
@@ -86,5 +90,6 @@
 <script src="plugins/flexslider/jquery.flexslider-min.js"></script>
 <script src="js/product.js"></script>
 <script src="js/js.js"></script>
+<script src="js/cart.js"></script>
 </body>
 </html>
