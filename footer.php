@@ -7,7 +7,9 @@
 						<div class="footer_logo">
 							<a href="#">
 								<div class="d-flex flex-row align-items-center justify-content-start">
-									<div class="footer_logo_icon"><img src="uploads/logo.jpg" alt></div>
+									<div class="footer_logo_icon">
+										<img src="uploads/logo.jpg" alt style="width: 100px; ">
+									</div>
 									<div>Flipavenueltd</div>
 								</div>
 							</a>
@@ -81,6 +83,8 @@
 <script src="plugins/progressbar/progressbar.min.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="plugins/flexslider/jquery.flexslider-min.js"></script>
+<script src="js/product.js"></script>
 <script src="js/js.js"></script>
 </body>
 </html>

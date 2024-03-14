@@ -37,6 +37,7 @@
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="//cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
 </head>
 <body>
   <!-- ======= Header ======= -->

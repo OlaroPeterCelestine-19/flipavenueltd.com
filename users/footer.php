@@ -19,5 +19,22 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+
+<!-- working on updating user hourly rate code... -->
+ <script>
+    function addCommas(input) {
+        // Remove existing commas and non-numeric characters
+        let value = input.value.replace(/,/g, '').replace(/\D/g, '');
+        
+        // Add commas back to the number
+        let formattedValue = new Intl.NumberFormat().format(value);
+        
+        // Update the input value with commas
+        input.value = formattedValue;
+    }
+</script>
+
 </body>
 </html>
