@@ -24,26 +24,26 @@
                 <thead>
                   <tr>
                     <th scope="col">No.</th>
+                    <th scope="col">Product</th>
                     <th scope="col">Name</th>
                     <th scope="col">Images</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td >
-                    <a class="btn btn-primary" href="#" role="button">Update</a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
-                    </td>
+                  <?php 
+                  // `payment_id`, `pid`, `amount`, `currency`, `payment_status`, `payment_reference`, `payment_date`, `customer_name`, `customer_email`, `customer_phone`, `customer_address`
+                  $pending_orders = $dbh->query("SELECT * FROM payments p, products pt WHERE p.pid = pt.pid AND p.payment_status = 'Pending' ORDER BY p.payment_date DESC ");
+                  $x=1;
+                  while ($rx = $pending_orders->fetch(PDO::FETCH_OBJ)) { ?>
+                  <tr>
+                    <th scope="row"><?=$x++; ?></th>
+                    <td><?=$rx->pname; ?></td>
+                    <td><?=$rx->customer_name; ?><b class="text-primary">(<?=$rx->customer_phone; ?>)</b></td>
+                    <td><img style="width: 100px; " src="<?=$rx->ppic; ?>"></td>
+                    <td><?=$rx->currency.' '.number_format($rx->amount,2); ?></td>
                   </tr>
+                <?php } ?>
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
