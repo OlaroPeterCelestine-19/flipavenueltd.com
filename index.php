@@ -26,7 +26,7 @@
 										<div class="product_tag d-flex flex-column align-items-center justify-content-center">
 											<div>
 												<div>from</div>
-												<div>$3<span>.99</span></div>
+												<div>$4<span>.99</span></div>
 											</div>
 										</div>
 										<div class="product_image"><img src="images/home_2.jpg" alt></div>
